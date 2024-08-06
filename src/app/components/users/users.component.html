@@ -1,0 +1,38 @@
+<section id="body">
+  <div class="heading">
+    <h1 id="main-head">Users</h1>
+  </div>
+  <section id="search">
+    <div class="container">
+      <div class="row">
+        <div class="input-group mt-3">
+          <input type="text" class="form-control col-9" placeholder="E-mail" aria-label="email" id="email"
+            aria-describedby="basic-addon2" [(ngModel)]="searchEmail">
+          <div class="input-group-append col-3">
+            <button class="btn btn-info search" type="button" (click)="onSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="users">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 mt-2" *ngFor="let user of filteredUsers">
+          <div class="card h-100">
+            <img class="card-img-top rounded-circle" src="{{user.image}}" alt="{{user.username}} image">
+            <div class="card-body">
+              <h5 class="card-title">{{user.username}}
+                <mat-icon aria-hidden="false" aria-label="Example star icon" fontIcon="star"
+                  [ngStyle]="{'color': user.is_verified ? 'green': 'red'}"></mat-icon>
+              </h5>
+              <p class="card-text" style="margin-bottom: 2px;">{{user.email}}</p>
+              <p class="card-text">{{user.phone}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
